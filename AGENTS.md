@@ -15,7 +15,7 @@ Tech stack:
 The backend is maintained in a separate repository.
 
 CI validation is required before changes are merged into main.
-Codex automatic review is enabled for pull requests in this repository.git add AGENTS.md
+Codex automatic review is enabled for pull requests in this repository.
 
 ## Project Validation
 
