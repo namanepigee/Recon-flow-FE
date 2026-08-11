@@ -14,6 +14,8 @@ Tech stack:
 
 The backend is maintained in a separate repository.
 
+CI validation is required before changes are merged into main.
+
 ## Project Validation
 
 Run these checks before handing off frontend changes:
