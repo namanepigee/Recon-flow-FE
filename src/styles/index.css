@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family:
+    Avenir Next,
+    Avenir,
+    Helvetica Neue,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    sans-serif;
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+}
+
+.auth-panel {
+  animation: panel-in 560ms ease-out both;
+}
+
+.flow-card {
+  animation: float-card 4s ease-in-out infinite;
+}
+
+.match-line {
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(20, 184, 166, 0),
+    rgba(20, 184, 166, 0.85),
+    rgba(59, 130, 246, 0)
+  );
+  animation: match-pulse 2.6s ease-in-out infinite;
+}
+
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-card {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes match-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scaleX(0.82);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}
