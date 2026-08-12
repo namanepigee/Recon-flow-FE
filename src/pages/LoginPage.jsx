@@ -19,7 +19,11 @@ export default function LoginPage() {
   const navigate = useNavigate();
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
-  const [form, setForm] = useState({ email: '', password: '' });
+  const [form, setForm] = useState({
+    email: '',
+    password: '',
+    rememberMe: false,
+  });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -51,6 +55,7 @@ export default function LoginPage() {
       await login({
         email: form.email.trim().toLowerCase(),
         password: form.password,
+        remember_me: form.rememberMe,
       });
       navigate(from, { replace: true });
     } catch (error) {
@@ -104,6 +109,18 @@ export default function LoginPage() {
             onChange={(event) => updateField('password', event.target.value)}
             onTogglePassword={() => setShowPassword((value) => !value)}
           />
+          <label className="flex items-center gap-3 text-sm font-medium text-slate-700">
+            <input
+              checked={form.rememberMe}
+              className="h-4 w-4 rounded border-slate-300 text-teal-700 focus:ring-teal-700"
+              name="rememberMe"
+              type="checkbox"
+              onChange={(event) =>
+                updateField('rememberMe', event.target.checked)
+              }
+            />
+            Remember me on this device
+          </label>
           <button
             className="flex w-full items-center justify-center gap-2 rounded-2xl bg-slate-950 px-5 py-3 font-bold text-white shadow-[0_18px_44px_rgba(15,23,42,0.18)] transition hover:bg-slate-800 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-70"
             disabled={isSubmitting}

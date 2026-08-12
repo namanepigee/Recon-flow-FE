@@ -55,7 +55,7 @@ export function AuthProvider({ children }) {
 
   const login = useCallback(async (payload) => {
     const data = await authApi.login(payload);
-    setTokens(data.tokens);
+    setTokens(data.tokens, { rememberMe: payload.remember_me });
     setUser(data.user);
     return data;
   }, []);
